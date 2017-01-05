@@ -1,0 +1,21 @@
+version: "2"
+
+services:
+
+    docker-registry:
+        image: registry:2
+        ports:
+            - "5000:5000"
+        expose:
+            - 5000
+
+    docker-registry-browser:
+        image: klausmeyer/docker-registry-browser
+        ports:
+            - "5001:8080"
+        depends_on:
+            - docker-registry
+        links:
+            - docker-registry:docker_registry
+        environment:
+            - DOCKER_REGISTRY_URL=http://docker_registry:5000
