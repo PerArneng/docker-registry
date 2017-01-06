@@ -1,3 +1,4 @@
+![logo](logo.png)
 
 # Docker Registry Compose File
 
